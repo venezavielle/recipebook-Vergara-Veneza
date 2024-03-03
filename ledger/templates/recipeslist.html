@@ -10,7 +10,7 @@
     <h2>Recipes List:</h2>
     <ol>
         {% for recipe in recipes %}
-            <li><a href="{{ recipe.link }}">{{ recipe.name }}</a></li>
+            <li><a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.name }}</a></li>
         {% endfor %}
     </ol>
 </body>
