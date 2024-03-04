@@ -21,7 +21,7 @@ from ledger.views import RecipeListView, RecipeDetailView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('recipes/list/', RecipeListView.as_view(), name='recipes_list'),
-    path('recipe/<int:pk>/', RecipeDetailView.as_view(), name='recipe_detail'),  # Use .as_view() here
+    path('recipe/<int:pk>/', RecipeDetailView.as_view(), name='recipe_detail'),  
     path('ledger/', include('ledger.urls', namespace='ledger')),
     path('', RecipeListView.as_view(), name='home'),
 ]
