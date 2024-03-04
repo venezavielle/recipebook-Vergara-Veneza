@@ -1,6 +1,16 @@
+# ledger/admin.py
 from django.contrib import admin
-from .models import Ingredient, Recipe, RecipeIngredient
+from .models import Recipe, RecipeIngredient, Ingredient
 
-admin.site.register(Ingredient)
-admin.site.register(Recipe)
-admin.site.register(RecipeIngredient)
+class RecipeIngredientInline(admin.TabularInline):
+    model = RecipeIngredient
+
+class RecipeAdmin(admin.ModelAdmin):
+    model = Recipe
+    inlines = [RecipeIngredientInline]
+
+class IngredientAdmin(admin.ModelAdmin): 
+    model = Ingredient
+
+admin.site.register(Recipe, RecipeAdmin)
+admin.site.register(Ingredient, IngredientAdmin) 

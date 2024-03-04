@@ -1,13 +1,12 @@
-from django.shortcuts import get_object_or_404, render
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from .models import Recipe
 
-def recipes_list(request):
-    recipes = Recipe.objects.all()
-    context = {"recipes": recipes}
-    return render(request, "recipeslist.html", context)
-
-def recipe_detail(request, recipe_id):
-    recipe = get_object_or_404(Recipe, pk=recipe_id)
-    context = {"recipe": recipe}
-    return render(request, "recipedetail.html", context)
-
+class RecipeListView(ListView):
+    model = Recipe
+    template_name = 'recipe_list.html'
+    context_object_name = 'recipes'
+    
+class RecipeDetailView(DetailView):
+    model = Recipe
+    template_name = 'recipe_detail.html'
