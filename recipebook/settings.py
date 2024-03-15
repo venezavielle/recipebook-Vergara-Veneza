@@ -128,10 +128,6 @@ LOGOUT_REDIRECT_URL = "/accounts/login"
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-PASSWORD_RESET_FORM = 'registration/password_reset_form.html'
-
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
