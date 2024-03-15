@@ -59,7 +59,7 @@ ROOT_URLCONF = 'recipebook.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,6 +125,10 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = "/recipes/list"
 
 LOGOUT_REDIRECT_URL = "/accounts/login"
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+PASSWORD_RESET_FORM = 'registration/password_reset_form.html'
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
