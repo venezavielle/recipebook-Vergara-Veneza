@@ -1,7 +1,19 @@
-<h1>{{ recipe.name }}</h1>
-<h2>Ingredients:</h2>
-<ul>
+{% extends "base.html" %}
+
+{% block title %}
+  {{ recipe.name }}
+{% endblock %}
+
+{% block content %}
+  <h2>{{ recipe.name }}</h2>
+  {% if recipe.author %}
+    <p><strong>Author:</strong> {{ recipe.author.profile.name }}</p>
+  {% endif %}
+
+  <h3>Ingredients:</h3>
+  <ul>
     {% for ingredient in recipe.ingredients.all %}
-        <li>{{ ingredient.quantity }} {{ ingredient.ingredient.name }}</li>
+      <li>{{ ingredient.quantity }} {{ ingredient.ingredient.name }}</li>
     {% endfor %}
-</ul>
+  </ul>
+{% endblock %}
